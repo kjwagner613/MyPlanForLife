@@ -1,0 +1,14 @@
+<h2>Meals</h2>
+<a href="{% url 'Meal_create' %}">Add New Meal</a>
+<ul>
+  {% for meal in meals %}
+    <li>
+      {{ meal.name }}
+      <a href="{% url 'meal_update' meal.id %}">Edit</a>
+      <a href="{% url 'meal_delete' meal.id %}">Delete</a>
+    </li>
+  {% empty %}
+    <li>No meals defined yet.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
