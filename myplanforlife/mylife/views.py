@@ -9,12 +9,20 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import MyPlan, Meal
 from .forms import MyPlanForm
-from django.shortcuts import render, redirect
+from django.contrib.auth import logout
+from django.shortcuts import redirect, render
 from .forms import UserRegisterForm
 # Create your views here.
 
+def custom_logout_view(request):
+    logout(request)
+    return render(request, 'registration/logged_out.html')
+
 class HomeView(TemplateView):
     template_name = 'home.html'
+
+class LogoutView(TemplateView):
+    template_name = 'registration/logged_out.html'
 
 class MyPlanListView(ListView):
     model = MyPlan

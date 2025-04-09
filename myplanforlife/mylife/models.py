@@ -13,7 +13,7 @@ class Meal(models.Model):
     mealtime = models.CharField(max_length=20, choices=MEAL_TIMES, default='Breakfast')
 
     def __str__(self):
-        return self.name
+         return f"{self.name} ({self.mealtime})"
 
 
 class MyPlan(models.Model):
@@ -26,7 +26,10 @@ class MyPlan(models.Model):
     quality = models.CharField(max_length=255, default='Fulfillment')
     goals = models.CharField(max_length=255, default='Future Aspirations')  
 
-
     def __str__(self):
-        return self.reference
+        return f"{self.reference} - Meal: {self.meal}" if self.meal else self.reference
+
+
+    # def __str__(self):
+    #     return self.reference
     

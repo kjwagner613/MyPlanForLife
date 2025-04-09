@@ -6,7 +6,7 @@
 <ul>
   {% for meal in meals %}
     <li>
-      {{ meal.name }}
+      {{ meal.name }}, {{ meal.mealtime }}
       <a href="{% url 'meal_update' meal.id %}">Edit</a>
       <a href="{% url 'meal_delete' meal.id %}">Delete</a>
     </li>
