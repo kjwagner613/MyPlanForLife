@@ -64,9 +64,10 @@ class MealListView(ListView):
 
 class MealCreateView(CreateView):
     model = Meal
-    meals = ['name']
+    fields = ['name', 'mealtime']
     template_name = 'mylife/meal_form.html'
     success_url = reverse_lazy('meal_list')
+
 
 class MealUpdateView(UpdateView):
     model = Meal
