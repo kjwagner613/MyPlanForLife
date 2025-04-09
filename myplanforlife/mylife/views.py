@@ -1,13 +1,20 @@
 from django.shortcuts import render
-
+from pyexpat.errors import messages
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import CreateView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import MyPlan, Meal
+from .forms import MyPlanForm
+from django.shortcuts import render, redirect
+from .forms import UserRegisterForm
 # Create your views here.
-class HomeView(TemplateView):
-    template_name = 'mylife/home.html'
-    extra_context = {'title': 'Home'}
-class AboutView(TemplateView):
-    template_name = 'mylife/about.html'
-    extra_context = {'title': 'About'}
 
+class HomeView(TemplateView):
+    template_name = 'home.html'
 
 class MyPlanListView(ListView):
     model = MyPlan
@@ -22,7 +29,18 @@ class MyPlanCreateView(LoginRequiredMixin, CreateView):
     model = MyPlan
     form_class = MyPlanForm
     template_name = 'mylife/myplan_form.html'
-    success_url = reverse_lazy('profile_list')
+    success_url = reverse_lazy('myplan_list')
+
+class MyPlanUpdateView(UpdateView):
+    model = MyPlan
+    form_class = MyPlanForm
+    template_name = 'mylife/myplan_form.html'
+    success_url = reverse_lazy('myplan_list')
+
+class MyPlanDeleteView(DeleteView):
+    model = MyPlan
+    template_name = 'mylife/myplan_confirm_delete.html'
+    success_url = reverse_lazy('myplan_list')
 
 
 def register(request):

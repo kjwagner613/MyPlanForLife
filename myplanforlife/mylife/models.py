@@ -2,16 +2,19 @@ from django.db import models
 
 # Create your models here.
 class Meal(models.Model):
-    name = models.CharField(max_length=100)
-    mealtime = models.choices([
+    MEAL_TIMES = [
         ('Breakfast', 'Breakfast'),
         ('Lunch', 'Lunch'),
         ('Dinner', 'Dinner'),
         ('Snack', 'Snack'),
-    ], default='Breakfast')
+    ]
+
+    name = models.CharField(max_length=100)
+    mealtime = models.CharField(max_length=20, choices=MEAL_TIMES, default='Breakfast')
 
     def __str__(self):
         return self.name
+
 
 class MyPlan(models.Model):
     reference = models.CharField(max_length=255, default='Enter Name or Number')
@@ -25,5 +28,5 @@ class MyPlan(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.reference
     

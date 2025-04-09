@@ -8,4 +8,9 @@
   <button type="submit">Yes, delete</button>
   <a href="{% url 'meal_list' %}">Cancel</a>
 </form>
-{% endblock %}
+{% comment %} Ensure the template is rendering correctly by checking the context passed to it. {% endcomment %}
+{% if object %}
+  <p>Meal Name: {{ object.name }}</p>
+{% else %}
+  <p>No meal object found.</p>
+{% endif %}
