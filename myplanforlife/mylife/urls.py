@@ -1,6 +1,8 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 from django.views.generic import TemplateView
+from django.contrib.auth import views as auth_views
+from django.contrib import admin  # Import the admin module
 from .views import (
     HomeView,
     MyPlanListView,
@@ -18,7 +20,10 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-
+    path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
+    path('admin/', admin.site.urls),
+    path('accounts/register/', register, name='register'),
+    path('accounts/', include('django.contrib.auth.urls')),  # Include Django's auth URLs
     path('', HomeView.as_view(), name='home'),
     path('register/', register, name='register'),
     path('myplans/', MyPlanListView.as_view(), name='myplan_list'),

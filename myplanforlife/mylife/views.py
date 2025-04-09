@@ -43,21 +43,18 @@ class MyPlanDeleteView(DeleteView):
     success_url = reverse_lazy('myplan_list')
 
 
+
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            # Consider adding a success message before redirecting
             messages.success(request, f'Account created for {username}! You can now log in.')
             return redirect('login')
-        else:
-            # Handling form errors
-            messages.error(request, 'Please correct the error below.')
     else:
         form = UserRegisterForm()
-    return render(request, 'users/register.html', {'form': form})
+    return render(request, 'registration/register.html', {'form': form})
 
 
 class MealListView(ListView):
