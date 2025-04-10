@@ -1,10 +1,35 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<h2>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Meal</h2>
+{% extends 'base.html' %} {% block content %}
+<h2>{% if form.instance.pk %}Modify{% else %}Add{% endif %} Meal</h2>
 <form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Save</button>
+  <link rel="icon" href="./static/favicon.ico" />
+  <link rel="stylesheet" href="./static/style.css" />
+  <div class="meal-form-wrap-container">
+    <div class="meal-form-wrap" ?>
+      {% csrf_token %}
+      <div class="meal-form-item1">
+        {{ form.name.label_tag }} {{ form.name }}
+      </div>
+      <div class="meal-form-item2">
+        {{ form.mealtime.label_tag }} {{ form.mealtime }}
+      </div>
+
+      <div class="meal-form-item3">
+        <button type="submit">Submit</button>
+        <div class="meal-form-item4">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </form>
-{% endblock %}
+
+{% if form.instance.pk %}
+<form
+  method="post"
+  action="{% url 'meal_delete' form.instance.pk %}"
+  style="margin-top: 1em"
+>
+  {% csrf_token %}
+ 
+</form>
+{% endif %} {% endblock %}

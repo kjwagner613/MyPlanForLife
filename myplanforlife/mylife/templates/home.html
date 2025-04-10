@@ -1,20 +1,27 @@
 {% extends 'base.html' %}
 
-{% block title %}Home Page{% endblock %}
+<span div class="leaflevel"> {% block title %}Home Page{% endblock %}</span>
 
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-</head>
-<body>
-    <h1 class="home-h1"My Life Organizer!</h1>
-    <h2 class="home-h2">Keep the balance of Life</h2>
-    <p class="home-p">Here to help organize and maintain health, spirit and wellbeing</p>
-</body>
+  <div class="root">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Home Page</title>
+    </head>
+    <body>
+      <h1 class="home-h1">My Life Organizer!</h1>
+      <h2 class="home-h2">Keep the balance of Life</h2>
+      <p class="home-p">
+        Here to help organize and maintain health, spirit and wellbeing
+      
+      <div class="element-spacer">
+      </p> <img class="leaf" src="../static/assets/leaf.ico" />
+      </div>
+    </body>
+  </div>
 </html>
-{% endblock %}
 
+{% endblock %}

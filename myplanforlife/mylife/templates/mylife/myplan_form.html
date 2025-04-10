@@ -1,9 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Create or Edit My Plan</h2>
-<form method="post">
+
+<h2 class="myplan-list-title2">Create or Edit A Plan</h2>
+<div class="element-container2">
+  <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    <table class="form-table2">
+      {% for field in form %}
+        <tr class="form-row2">
+          <td>{{ field.label_tag }}</td>
+          <td>{{ field }}</td>
+        </tr>
+      {% endfor %}
+    </table>
     <button type="submit">Submit</button>
-</form>
+  </form>
+</div>
+
 {% endblock %}
