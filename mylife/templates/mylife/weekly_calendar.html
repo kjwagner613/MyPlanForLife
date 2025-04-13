@@ -1,13 +1,18 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <div class="page">
   <h2 class="text-center">Weekly Calendar ({{ target_date|date:"F j, Y" }})</h2>
 
+
+  <link rel="stylesheet" href="{% static 'base.css' %}" />
   <form method="get" class="text-center">
     <label for="date">View week of:</label>
-    <input type="date" name="date" id="date" value="{{ target_date }}" class="border padding" />
+    <input
+      type="date"
+      name="date"
+      id="date"
+      value="{{ target_date }}"
+      class="border padding"
+    />
     <button type="submit" class="btn btn-primary btn-sm">Go</button>
   </form>
 
@@ -58,10 +63,10 @@
 </div>
 <script src="{% static 'assets/quotes.js' %}"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const quoteEls = document.querySelectorAll('.quote-space');
+  document.addEventListener("DOMContentLoaded", function () {
+    const quoteEls = document.querySelectorAll(".quote-space");
 
-    quoteEls.forEach(el => {
+    quoteEls.forEach((el) => {
       const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
       el.innerHTML = `
         <blockquote>"${randomQuote.quote}"</blockquote>

@@ -252,11 +252,28 @@ a:hover {
 
 .quote-space {
   font-style: italic;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   color: #555;
 }
 .quote-space small {
   display: block;
+  justify-content: center;
   text-align: right;
   color: #888;
+}
+
+
+.home-description > em:nth-child(3) {
+  position: relative;
+  left: -10vw;
+}
+
+.home-description > em:nth-child(6) {
+  position: relative;
+  left: 0vw;
+}
+.home-description > em:nth-child(11) {
+  position: relative;
+  left: 10vw;
+
 }

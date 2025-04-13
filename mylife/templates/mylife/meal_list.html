@@ -1,8 +1,10 @@
 {% extends 'base.html' %} {% block content %}
+ {% load static %}
+ <link rel="stylesheet" href="{% static 'base.css' %}">
 
 <div class="page">
   <div class="container-width-600">
-  <h2 class="text-center">All Available Meals</h2>
+  <h2 class="text-center">Available Meals</h2>
   <a class="button" href="{% url 'meal_create' %}">Add Meal</a>
  
     <div class="meal-grid">

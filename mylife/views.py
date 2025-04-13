@@ -151,6 +151,11 @@ class MyPlanCreateView(LoginRequiredMixin, CreateView):
     template_name = 'mylife/myplan_form.html'
     success_url = reverse_lazy('myplan_list')
 
+    def form_valid(self, form):
+        # Ensure the logged-in user is assigned to the user field
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+    
 class MyPlanUpdateView(LoginRequiredMixin, UpdateView):
     model = MyPlan
     form_class = MyPlanForm

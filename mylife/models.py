@@ -29,7 +29,13 @@ class MealPlan(models.Model):
         return f"{self.meal.name} for {self.time_of_day} on {self.date}"
 
 
+from django.contrib.auth.models import User
+
+def get_default_user():
+    return User.objects.first().id  # Replace with logic to get the desired user
+
 class MyPlan(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=get_default_user)
     date = models.DateField(default=datetime.date.today)
     physical = models.CharField(max_length=255, default='Body Plan')
     spiritual = models.CharField(max_length=255, default='Spiritual Needs')
@@ -40,4 +46,3 @@ class MyPlan(models.Model):
 
     def __str__(self):
         return f"MyPlan for {self.date}"
-    
