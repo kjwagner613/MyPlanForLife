@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}" />
+{% endblock %} {% block content %}
+{% comment %} <p class="update_notice">
+  <strong>Note:</strong> You can modify or delete your plans by clicking on the associated date
+</p> {% endcomment %}
+<div class="page">
+<h1 class="text-center">My Plans</h1>
+
+<div class="plan-container">
+  {% for myplan in myplans %}
+  <div class="plan">
+    <div class="item">
+      {% if myplan.date %}
+      <h3>
+        <a href="{% url 'myplan_options' myplan.date %}"
+          >{{ myplan.date|date:"l, F j, Y" }}</a
+        >
+      </h3>
+      {% else %}
+      <em>No date set</em>
+      {% endif %}
+    </div>
+    <div class="item">
+      <p>Physical:<br>{{ myplan.physical }}</p>
+    </div>
+    <div class="item">
+      <p>Spiritual:<br>{{ myplan.spiritual }}</p>
+    </div>
+    <div class="item">
+      <p>Emotional:<br>{{ myplan.emotional }}</p>
+    </div>
+    <div class="item">
+      <p>Mental:<br>{{ myplan.mental }}</p>
+    </div>
+    <div class="item">
+      <p>Quality:<br>{{ myplan.quality }}</p>
+    </div>
+    <div class="item">
+      <p>Goal:<br>{{ myplan.goals }}</p>
+    </div>
+  </div>
+
+  {% endfor %}
+</div> </div>
+{% endblock %}

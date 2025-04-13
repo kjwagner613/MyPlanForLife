@@ -1,0 +1,41 @@
+myplan_list.html
+
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}" />
+{% endblock %} {% block content %}
+<h2>My Plan</h2>
+<div class="myplan-list-container-main">
+  {% for myplan in myplans %}
+  <div class="myplan-row-main">
+    <div class="myplan-block-main">
+      <h3>{{ myplan.reference }}</h3>
+    </div>
+    <div class="myplan-block-main">
+      <p>Meal - {{ myplan.meal }}</p>
+    </div>
+    <div class="myplan-block-main">
+      <p>{{ myplan.physical }}</p>
+    </div>
+    <div class="myplan-block-main">
+      <p>{{ myplan.spiritual }}</p>
+    </div>
+    <div class="myplan-block-main">
+      <p>{{ myplan.emotional }}</p>
+    </div>
+    <div class="myplan-block-main">
+      <p>{{ myplan.mental }}</p>
+    </div>
+    <div class="myplan-block-main">
+      <p>{{ myplan.quality }}</p>
+    </div>
+    <div class="myplan-block-main">
+      <p>{{ myplan.goals }}</p>
+    </div>
+    <div class="myplan-actions-main">
+      <a href="{% url 'myplan_update' myplan.id %}" class="btn warn">Modify</a>
+      <a href="{% url 'myplan_delete' myplan.id %}" class="btn danger">Delete</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

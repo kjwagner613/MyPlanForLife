@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="page">
+  <h2 class="text-center">Weekly Calendar ({{ target_date|date:"F j, Y" }})</h2>
+
+  <form method="get" class="text-center">
+    <label for="date">View week of:</label>
+    <input type="date" name="date" id="date" value="{{ target_date }}" class="border padding" />
+    <button type="submit" class="btn btn-primary btn-sm">Go</button>
+  </form>
+
+  <hr />
+
+  <div class="container">
+    {% for day in calendar_data %}
+    <div class="plan-container">
+      <!-- Date Header -->
+      <div class="plan border shadow padding">
+        <strong>{{ day.date|date:"l, F j" }}</strong>
+        <div class="quote-space mt-2"></div>
+      </div>
+
+      <!-- Daily Grid -->
+      <div class="daily-grid">
+        <!-- Wellness Plan -->
+        <div class="day-info border padding bg-light">
+          <h5>Wellness Plan</h5>
+          {% if day.wellness %}
+          <ul>
+            <li>Physical: {{ day.wellness.physical }}</li>
+            <li>Mental: {{ day.wellness.mental }}</li>
+            <li>Emotional: {{ day.wellness.emotional }}</li>
+            <li>Spiritual: {{ day.wellness.spiritual }}</li>
+            <li>Quality: {{ day.wellness.quality }}</li>
+            <li>Goals: {{ day.wellness.goals }}</li>
+          </ul>
+          {% else %}
+          <p><em>Open</em></p>
+          {% endif %}
+        </div>
+
+        <!-- Meals -->
+        <div class="meals-col border padding bg-light">
+          <h5>Meals</h5>
+          <ul>
+            <li>Breakfast: {{ day.meals.Breakfast }}</li>
+            <li>Lunch: {{ day.meals.Lunch }}</li>
+            <li>Dinner: {{ day.meals.Dinner }}</li>
+            <li>Snack: {{ day.meals.Snack }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<script src="{% static 'assets/quotes.js' %}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const quoteEls = document.querySelectorAll('.quote-space');
+
+    quoteEls.forEach(el => {
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      el.innerHTML = `
+        <blockquote>"${randomQuote.quote}"</blockquote>
+        <small>- ${randomQuote.author}</small>
+      `;
+    });
+  });
+</script>
+
+{% endblock %}

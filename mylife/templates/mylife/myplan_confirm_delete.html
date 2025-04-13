@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-header">
+  <h1>Delete a Plan?</h1>
+</div>
+<h2>Are you sure you want to delete {{ myplan.reference }}?</h2>
+<form method="post">
+  {% csrf_token %}
+  <a href="{% url 'myplan_detail' myplan.id %}" class="btn secondary">Cancel</a>
+  <button type="submit" class="btn danger">Yes - Delete!</button>
+</form>
+{% endblock %}

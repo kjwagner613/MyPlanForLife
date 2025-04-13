@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}" />
+{% endblock %}
+{% block content %}
+<h1>My Plans</h1>
+<div class="container">
+  {% for myplan in myplans %}
+    <div class="plan">
+      <h2>{{ myplan.reference }}</h2>
+      <p>{{ myplan.meal }}</p>
+      <p>{{ myplan.goals }}</p>
+      <div class="item">
+        <a href="{% url 'myplan_update' myplan.id %}" class="btn warn">Modify</a>
+        <a href="{% url 'myplan_delete' myplan.id %}" class="btn danger">Delete</a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

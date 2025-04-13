@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page">
+
+  <div class="container-width-600">
+    <h2>Plan a Meal</h2>
+  
+    <div class="meal-grid">
+      <div class="meal-card">
+
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="button" type="submit">Save</button>
+  </form>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

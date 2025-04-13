@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>My Meal Plan</h1>
+<a href="{% url 'create_meal_plan' %}" class="button">Plan a New Meal</a>
+
+<div class="container">
+  <div class="item">
+    <h3>Breakfast</h3>
+    <ul>
+      {% for plan in breakfast %}
+      <li>{{ plan.meal.name }} on {{ plan.date|date:"m/d/Y" }}</li>
+      {% empty %}
+      <li>No breakfast meals planned.</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="item">
+    <h3>Lunch</h3>
+    <ul>
+      {% for plan in lunch %}
+      <li>{{ plan.meal.name }} on {{ plan.date|date:"m/d/Y" }}</li>
+      {% empty %}
+      <li>No lunch meals planned.</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="item">
+    <h3>Dinner</h3>
+    <ul>
+      {% for plan in dinner %}
+      <li>{{ plan.meal.name }} on {{ plan.date|date:"m/d/Y" }}</li>
+      {% empty %}
+      <li>No dinner meals planned.</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="item">
+    <h3>Snack</h3>
+    <ul>
+      {% for plan in snack %}
+      <li>{{ plan.meal.name }} on {{ plan.date|date:"m/d/Y" }}</li>
+      {% empty %}
+      <li>No snacks planned.</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

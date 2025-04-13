@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="myplan-container">
+  <pre>{{ myplan|default:"No data found" }}</pre>
+
+  <div class="myplan-details">
+    <h1>{{ myplan.reference }}</h1>
+    <p>Meal: {{ myplan.meal }}</p>
+    <p>Physical: {{ myplan.physical }}</p>
+    <p>Spiritual: {{ myplan.spiritual }}</p>
+    <p>Emotional: {{ myplan.emotional }}</p>
+    <p>Mental: {{ myplan.mental }}</p>
+    <p>Quality: {{ myplan.quality }}</p>
+    <p>Goals: {{ myplan.goals }}</p>
+    <div class="myplan-actions">
+      <a href="{% url 'myplan_update' myplan.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'myplan_delete' myplan.id %}" class="btn danger">Delete</a>
+  </div>
+
+</section>
+{% endblock %}

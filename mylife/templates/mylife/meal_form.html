@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block content %}
+{% comment %} <h2>{% if form.instance.pk %}Modify{% else %}Add{% endif %} Meal</h2> {% endcomment %}
+
+<div class="page container-width-600">
+<form method="post">
+  <link rel="icon" href="./static/favicon.ico" />
+  <link rel="stylesheet" href="./static/style.css" />
+  <div class="meal-grid">
+
+
+  <h2 class="text-center">{% if form.instance.pk %}Modify{% else %}Add{% endif %} Meal</h2></div> 
+   
+      {% csrf_token %}
+   
+      <div class="meal-card">
+        {{ form.name.label_tag }} {{ form.name }}
+      </div>
+
+      
+
+      <div class="meal-card">
+        {{ form.calories.label_tag }} {{ form.calories }}
+      </div>
+      <div class="button-group">
+        <button type="submit" class="button">Submit</button>
+        <button type="submit" class="button-ctn">Delete</button>
+  
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+{% if form.instance.pk %}
+<form
+  method="post"
+  action="{% url 'meal_delete' form.instance.pk %}"
+  style="margin-top: 1em"
+>
+  {% csrf_token %}
+ 
+</form>
+{% endif %} {% endblock %}

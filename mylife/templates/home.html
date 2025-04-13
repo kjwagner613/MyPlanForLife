@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+<div class="page text-center">
+  <div class="home-container">
+    <h1 class="home-title">My Life Organizer</h1>
+    <h2 class="home-subtitle">Keep the balance of Life</h2>
+    <h4 class="home-description">
+      Here to help organize and maintain <br> <br>
+      <em>health</em> <br> <br> <em>spirit</em>  <br><br> and <br> <br> <em>wellbeing</em>.
+    </h4>
+    <img
+      src="{% static 'assets/leaf.png' %}"
+      alt="Leaf Icon"
+      style="transform: scale(0.5); position: fixed; top: -35vh; left: -35vw"
+    </div>
+  </div>
+  
+  {% endblock %}
+  

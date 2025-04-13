@@ -1,0 +1,262 @@
+/* === Global Styles === */
+:root {
+  --primary-color: #558c65;
+  --secondary-color: #f2e9d9;
+  --text-color: #333333;
+  --border-color: #827365;
+  --hover-color: #e8d5b7;
+  --font-family-heading: "Playfair Display", serif;
+  --font-family-body: "Lato", sans-serif;
+  --spacing-mini: 4px;
+  --spacing-small: 8px;
+  --spacing-medium: 15px;
+  --spacing-large: 40px;
+  --border-radius: 8px;
+}
+
+body {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  font-family: var(--font-family-body);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-color);
+  font-family: var(--font-family-heading);
+  margin-bottom: var(--spacing-medium);
+}
+
+p {
+  font-family: var(--font-family-body);
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: var(--spacing-medium);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--hover-color);
+  text-decoration: underline;
+}
+
+.button-group {
+  display: flex; /* Use Flexbox to align buttons horizontally */
+  gap: var(--spacing-mini); /* Add spacing between buttons */
+  justify-content: center; /* Center the buttons horizontally (optional) */
+  align-items: center; /* Align buttons vertically (optional) */
+  margin-bottom: 1px;
+}
+
+.button {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-small) var(--spacing-small);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 70px;
+  height: 35px;
+}
+
+.margin-top-150px {
+  margin-top: 150px;
+}
+
+
+.button:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.button:focus {
+  outline: 2px solid var(--hover-color);
+  outline-offset: 2px;
+}
+
+.button-ctn {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-mini) var(--spacing-small);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 70px;
+  height: 35px;
+}
+
+.button-ctn:hover {
+  background-color: red;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* === Utility Classes === */
+.text-center {
+  text-align: center;
+}
+
+.margin-auto {
+  margin: 0 auto;
+}
+
+.padding {
+  padding: var(--spacing-medium);
+}
+
+.border {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.bg-light {
+  background-color: var(--secondary-color);
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+  gap: var(--spacing-medium);
+}
+
+
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* === Layout Styles === */
+.page {
+  margin-top: var(--spacing-large); /* Add space below the navbar */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-medium);
+  box-sizing: border-box;
+}
+
+.container-width-600 {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-medium);
+  box-sizing: border-box;
+}
+
+.container-width-900 {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing-medium);
+  box-sizing: border-box;
+}
+/* === Component Styles === */
+.plan-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-medium);
+  margin: var(--spacing-large) auto;
+  padding: var(--spacing-medium);
+}
+
+.plan {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-medium);
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.meal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--spacing-medium);
+  margin: var(--spacing-large) auto;
+}
+
+.meal-card {
+  display: flex; /* Use Flexbox for alignment */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: space-between; /* Distribute space evenly */
+  align-items: center; /* Center items horizontally */
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-medium);
+  background-color: var(--secondary-color);
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%; /* Ensure all cards have the same height */
+}
+
+
+.meal-name {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: var(--spacing-medium);
+}
+
+.meal-actions a {
+  margin: 0 var(--spacing-small);
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.meal-actions a:hover {
+  text-decoration: underline;
+  color: var(--hover-color);
+}
+
+/* === Navbar Styles === */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: var(--spacing-small) var(--spacing-medium);
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+#id_meal {
+  width: 70%
+}
+
+.quote-space {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #555;
+}
+.quote-space small {
+  display: block;
+  text-align: right;
+  color: #888;
+}
