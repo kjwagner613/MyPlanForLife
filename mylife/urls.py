@@ -44,8 +44,9 @@ urlpatterns = [
     path('calendar/week/', views.weekly_calendar_view, name='weekly_calendar'),
     path('myplan/options/<str:date>/', views.myplan_options_view, name='myplan_options'),
 
-
-
-
-
 ]
+
+handler400 = 'mylife.views.custom_400'
+handler403 = 'mylife.views.custom_403'
+handler404 = 'mylife.views.custom_404'
+handler500 = 'mylife.views.custom_500'
