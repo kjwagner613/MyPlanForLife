@@ -2,10 +2,8 @@
 
 from pathlib import Path
 
-
 from dotenv import load_dotenv
 import os
-
 import dj_database_url
 
 load_dotenv()
@@ -75,7 +73,7 @@ WSGI_APPLICATION = 'myplanforlife.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 if 'ON_HEROKU' in os.environ:
-     DATABASES = {
+    DATABASES = {
         "default": dj_database_url.config(
             env='DATABASE_URL',
             conn_max_age=600,
@@ -85,12 +83,12 @@ if 'ON_HEROKU' in os.environ:
     }
 else:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': '<myplanforlife>',
-            # The value of 'NAME' should match the value of 'NAME' you replaced.
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "your_local_db_name",
         }
     }
+
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
