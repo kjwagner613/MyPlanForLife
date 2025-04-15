@@ -13,3 +13,10 @@ links:
 - [GitHub Repo Link:  https://github.com/kjwagner613/MyPlanForLife.git](https://github.com/kjwagner613/MyPlanForLife.git): 
 
 - [Deployed Project Link:  https://lifeplan-69c616f99dcc.herokuapp.com/ ](https://lifeplan-69c616f99dcc.herokuapp.com/)
+
+
+
+| / | | | () | | ()
+| \ / | __ | | _ __ | |_ ___ ___ _ ___
+| |/| |/ | __| |/ _ | ' \ / _ / | |/ | | | | | (| | || | (| | |) | () _ \ | (
+|| ||_,|_||_,|_./ _/|/|___|
