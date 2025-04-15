@@ -1,28 +1,31 @@
-{% extends "base.html" %}
-{% block content %}
-{% load static %}
+{% extends "base.html" %} {% block content %} {% load static %}
 
 <link rel="icon" href="{% static 'favicon.ico' %}" />
 <link rel="stylesheet" href="{% static 'base.css' %}" />
 
-
-
 <div class="page">
+  <div class="container-width-600">
+    {% if object %}
+    <h1>Update Plan for {{ object.date|date:"l, F j, Y" }}</h1>
+  {% else %}
+    <h1 class="text-center">Create a New Wellness Plan</h1>
+  {% endif %}
+  
 
-<div class="container-width-600">
-  <h2>Create or Edit A Plan</h2>
-  <form method="post">
-    {% csrf_token %}
-    <table class="meal-card">
-      {% for field in form %}
+    <form method="post">
+      {% csrf_token %}
+      <table class="meal-card">
+        {% for field in form %}
         <tr>
           <td>{{ field.label_tag }}</td>
           <td>{{ field }}</td>
         </tr>
-      {% endfor %}
-    </table>
-    <button class="button" type="submit">Submit</button>
-  </form>
-</div>
+        {% endfor %}
+      </table><div class="button-block text-center">
+      <button class="button" type="submit">Submit</button>
+      <button class="button-cncl" onclick="window.history.back()">Cancel</button>
+      </div>
+    </form>
+  </div>
 </div>
 {% endblock %}

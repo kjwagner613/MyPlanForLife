@@ -57,11 +57,13 @@ MyPlanForLife is a self-help web application that empowers users to create struc
 
 [Heroku App](https://myplanforlife-05b1598c3053.herokuapp.com)
 
+## Next for this app:
+
+- Build out the programs to make them pre-defined, or custom input, possible engage cosultants interested
+- Pilot group w/ doctor office and client partner app so office staff can provide content to patient mobiles.
+- Basically, build out everything. this is was just enough i hope to present the idea.
+- If to continue, assess viability by pilot w/Dr office.
+
 ## 🙏 Author
 
 Kevin Wagner — Full-stack developer in training,
-
-| / | | | () | | ()
-| \ / | ** | | \_ ** | |\_ **\_ \_** \_ **\_
-| |/| |/ | **| |/ _ | ' \ / _ / | |/ | | | | | (| | || | (| | |) | () _ \ | (
-|| ||_,|_||_,|_./ _/|/|\_\_\_|
