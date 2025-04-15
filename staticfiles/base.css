@@ -208,10 +208,10 @@ a:hover {
   padding: var(--spacing-medium);
 }
 .div.plan-container:nth-child(1) > div:nth-child(1) {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
 }
 .plan {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   padding: var(--spacing-medium);
@@ -283,6 +283,7 @@ a:hover {
   font-size: 1.2rem;
   color: #555;
 }
+
 .quote-space small {
   display: block;
   justify-content: center;
@@ -428,7 +429,11 @@ a:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-div.plan-container:nth-child(1) > div:nth-child(1) {
-  background-color: #f2e9d9;
+/* div.plan-container:nth-child(1) > div:nth-child(1) {
+  background-color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-medium);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+  color:
+} */

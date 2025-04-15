@@ -1,25 +1,27 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block title %}Home Page{% endblock %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <link rel="stylesheet" href="{% static 'base.css' %}" />
 
 <div class="margin-top-75px">
-
-<div class="page text-center">
-  <div class="container-width-600r">
-
-    <h1 class="home-title">Life Champion</h1>
-    <h2 class="home-subtitle">Keep the balance of Life</h2>
-    <h4 class="home-description">
-      Here to help organize and maintain <br> <br>
-      <em>health</em> <br> <br> <em>spirit</em>  <br><br> and <br> <br> <em>wellbeing</em>.
-    </h4>  
-    <img src="{% static 'assets/leaf.png' %}" alt="Leaf Icon" style="transform: scale(1.0); position: relative; top: -10vh; left: -20vw">
+  <div class="page text-center">
+    <div class="container-width-600r">
+      <h1 class="home-title">Life Champion</h1>
+      <h2 class="home-subtitle">Keep a balance in Life</h2>
+      <h4 class="home-description">
+        Here to help organize and maintain <br />
+        <br />
+        <em>health</em> <br />
+        <br />
+        <em>spirit</em> <br /><br />
+        and <br />
+        <br />
+        <em>wellbeing</em>.
+      </h4>
+      <img
+        src="{% static 'assets/leaf.png' %}"
+        alt="Leaf Icon"
+        style="transform: scale(1); position: relative; top: -10vh; left: -20vw"
+      />
     </div>
   </div>
 </div>
-</div>
-  {% endblock %}
-  
+{% endblock %}

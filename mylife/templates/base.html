@@ -5,13 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% load static %}
-    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static 'base.css' %}" />
     <title>{% block title %}My Site{% endblock %}</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link href="{% static 'base.css' %}" rel="stylesheet" />
+    <link rel="icon" href="{% static 'favicon.ico' %}" />
+    <link rel="stylesheet" href="{% static 'base.css' %}" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -51,18 +52,16 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'create_meal_plan' %}"
-                >Plan a Meal</a
+                >Schedule Meal</a
               >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'myplan_create' %}"
-                >Create Plan</a
+                >Wellness Plan</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'register' %}"
-                >Register new User</a
-              >
+              <a class="nav-link" href="{% url 'register' %}">Register User</a>
             </li>
 
             <li class="nav-item">
@@ -75,7 +74,14 @@
                 <button
                   type="submit"
                   class="nav-link btn btn-link"
-                  style="padding: 0; border: none; background: none; position: fixed; top: 1.8vh; font-size: 1.1rem;"
+                  style="
+                    padding: 0;
+                    border: none;
+                    background: none;
+                    position: fixed;
+                    top: 1.8vh;
+                    font-size: 1.05rem;
+                  "
                 >
                   Logout
                 </button>

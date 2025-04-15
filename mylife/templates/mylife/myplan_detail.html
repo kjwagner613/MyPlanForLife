@@ -2,8 +2,23 @@
 {% load static %}
 {% block content %}
 
+<link rel="icon" href="{% static 'favicon.ico' %}" />
+<link rel="stylesheet" href="{% static 'base.css' %}" />
+
 <section class="myplan-container">
   <pre>{{ myplan|default:"No data found" }}</pre>
+
+  <form method="POST" action="{% url 'myplan_by_date' %}">
+    {% csrf_token %}
+    <label for="plan_date">View Plan for:</label>
+    <select name="plan_date" id="plan_date">
+      {% for plan in myplans %}
+        <option value="{{ plan.date }}">{{ plan.date|date:"l, F j, Y" }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">View</button>
+  </form>
+  
 
   <div class="myplan-details">
     <h1>{{ myplan.reference }}</h1>

@@ -6,6 +6,7 @@ from django.contrib.auth import logout
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import MyPlan, Meal
+
 # Removed duplicate import of django.shortcuts
 
 from .forms import MyPlanForm, UserRegisterForm, MealPlanForm
@@ -14,6 +15,15 @@ from .models import MealPlan
 from datetime import datetime, timedelta
 from django.utils.timezone import make_aware
 from django.contrib.auth.decorators import login_required
+
+from django.shortcuts import get_object_or_404
+
+def myplan_by_date_view(request):
+    if request.method == "POST":
+        selected_date = request.POST.get("plan_date")
+        plan = get_object_or_404(MyPlan, user=request.user, date=selected_date)
+        return redirect('myplan_detail', pk=plan.pk)
+
 
 
 def custom_400(request, exception):
@@ -53,6 +63,7 @@ def meal_plan_list(request):
 
 class HomeView(TemplateView):
     template_name = 'home.html'
+    
 
 class LogoutView(TemplateView):
     template_name = 'registration/logged_out.html'
@@ -158,12 +169,14 @@ class MyPlanListView(LoginRequiredMixin, ListView):
         return MyPlan.objects.filter(user=self.request.user).order_by('date')
 
 
+
+
+
 class MyPlanDetailView(DetailView):
     model = MyPlan
     template_name = 'mylife/myplan_detail.html'
 
-    def get_queryset(self):
-        return MyPlan.objects.filter(user=self.request.user)
+
 
 class MyPlanCreateView(LoginRequiredMixin, CreateView):
     model = MyPlan

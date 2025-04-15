@@ -1,5 +1,8 @@
 {% extends 'base.html' %} {% block content %}
+{% load static %}
 
+<link rel="icon" href="{% static 'favicon.ico' %}" />
+<link rel="stylesheet" href="{% static 'base.css' %}" />
 <h1>My Meal Plan</h1>
 <a href="{% url 'create_meal_plan' %}" class="button">Plan a New Meal</a>
 

@@ -1,20 +1,21 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
+{% load static %} 
+<link rel="icon" href="{% static 'favicon.ico' %}" />
+<link rel="stylesheet" href="{% static 'base.css' %}" />
 <div class="page">
-
   <div class="container-width-600">
     <h2>Plan a Meal</h2>
-  
+
     <div class="meal-grid">
       <div class="meal-card">
-
-  <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="button" type="submit">Save</button>
-  </form>
-</div>
-</div>
-</div>
+        <form method="POST">
+          <p>Creating plan for: <strong>{{ request.user.username }}</strong></p>
+          {% csrf_token %} {{ form.as_p }}
+          <button class="button" type="submit">Save</button>
+          <button class="button-cncl" onclick="history.back()">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
