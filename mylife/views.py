@@ -151,12 +151,19 @@ class MyPlanListView(LoginRequiredMixin, ListView):
     ordering = ['date']
 
     def get_queryset(self):
+        return MyPlan.objects.filter(user=self.request.user)
+
+
+    def get_queryset(self):
         return MyPlan.objects.filter(user=self.request.user).order_by('date')
 
 
 class MyPlanDetailView(DetailView):
     model = MyPlan
     template_name = 'mylife/myplan_detail.html'
+
+    def get_queryset(self):
+        return MyPlan.objects.filter(user=self.request.user)
 
 class MyPlanCreateView(LoginRequiredMixin, CreateView):
     model = MyPlan
