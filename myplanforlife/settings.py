@@ -24,7 +24,7 @@ SECRET_KEY = 'FIPqfOB1vfTRhcZb77t7S-P5f9EzTCz9nQ22SQU1-lFsFrTus-QqQyUn8XwWiwUy05
 if not 'ON_HEROKU' in os.environ:
     DEBUG = True
 
-ALLOWED_HOSTS = [*]
+ALLOWED_HOSTS = ['*']
 
 
 
