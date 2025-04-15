@@ -5,6 +5,7 @@
   --text-color: #333333;
   --border-color: #558c65;
   --hover-color: #e8d5b7;
+  --accent-color: #498978;
   --font-family-heading: "Playfair Display", serif;
   --font-family-body: "Lato", sans-serif;
   --spacing-mini: 4px;
@@ -61,16 +62,16 @@ a:hover {
 }
 
 .button {
-  background-color: var(--secondary-color);
-  color: var(--text-color);
+  background-color: var(--border-color);
+  color: var(--secondary-color);
   border: 2px solid var(--primary-color);
   border-radius: var(--border-radius);
   padding: var(--spacing-small) var(--spacing-small);
   font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  width: 70px;
-  height: 35px;
+  transition: border-color 0.3s ease, transform 0.2s ease;
+  width: 80px;
+  height: 40px;
 }
 
 .margin-top-150px {
@@ -111,6 +112,25 @@ a:hover {
 
 .button-ctn:hover {
   background-color: red;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.button-cncl {
+  background-color: rgb(91, 104, 116);
+  color: var(--secondary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-mini) var(--spacing-small);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 80px;
+  height: 40px;
+}
+
+.button-cncl:hover {
+  background-color: yellow;
   color: #fff;
   transform: scale(1.05);
 }
@@ -187,9 +207,11 @@ a:hover {
   margin: var(--spacing-large) auto;
   padding: var(--spacing-medium);
 }
-
+.div.plan-container:nth-child(1) > div:nth-child(1) {
+  background-color: var(--primary-color);
+}
 .plan {
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   padding: var(--spacing-medium);
@@ -323,7 +345,8 @@ a:hover {
   background-color: #fff8dc;
   padding: 0.5rem 1.25rem;
   border-radius: 8px;
-  color: goldenrod;
+  color: var(--text-color);
+  border: 2px solid var(--border-color);
   font-weight: bold;
   font-size: 1.4rem;
   transition: all 0.25s ease;
@@ -334,21 +357,29 @@ a:hover {
   transition: all 0.3s ease;
   align-self: center;
   border-radius: 6px;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 1.25rem;
+  margin-left: 0.5rem;
+  line-height: 0.7;
 }
 
 .plan-date-day {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   display: block;
+  text-align: center;
+  line-height: 0.7;
 }
 
 .plan-date-full {
   font-size: 1.2rem;
   display: block;
+  text-align: center;
+  line-height: 0.7;
 }
 
 .plan-date-button:hover {
-  background-color: #fff8dc;
+  background-color: #e19d75;
+  color: var(--border-color);
+  border: 2px solid var(--primary-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   border-radius: 6px;
   padding: 0.25rem 0.5rem;
@@ -365,8 +396,9 @@ a:hover {
 
 .plan-body {
   padding-left: 20px;
+  font-size: 1rem;
   color: #333;
-  line-height: 1.6;
+  line-height: 1;
 }
 
 .plan-ribbon {
@@ -384,8 +416,8 @@ a:hover {
   border: 1px solid var(--border-color);
   border-radius: 10px;
   padding: 1rem;
-  margin-left: 20px;
-  margin-right: 10px;
+  margin-left: 10px;
+  margin-right: 5px;
   background-color: #fdfdfd;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -394,4 +426,9 @@ a:hover {
 .plan-inner:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+div.plan-container:nth-child(1) > div:nth-child(1) {
+  background-color: #f2e9d9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

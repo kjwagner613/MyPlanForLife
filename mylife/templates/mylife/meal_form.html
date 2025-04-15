@@ -1,34 +1,43 @@
 {% extends 'base.html' %} {% block content %}
-{% comment %} <h2>{% if form.instance.pk %}Modify{% else %}Add{% endif %} Meal</h2> {% endcomment %}
+{% load static %}
+
+{% comment %}
+<h2>{% if form.instance.pk %}Modify{% else %}Add{% endif %} Meal</h2>
+{% endcomment %}
+
+<link rel="favicon" href="{% static 'favicon.ico' %}"/>
+<link rel="stylesheet" href="{% static 'base.css' %}" />
 
 <div class="page container-width-600">
-<form method="post">
-
-  <link rel="stylesheet" href="./static/style.css" />
-  <div class="meal-grid">
-
-
-  <h2 class="text-center">{% if form.instance.pk %}Modify{% else %}Add{% endif %} Meal</h2></div> 
-   
-      {% csrf_token %}
-   
-      <div class="meal-card">
-        {{ form.name.label_tag }} {{ form.name }}
-      </div>
-
-      
-
-      <div class="meal-card">
-        {{ form.calories.label_tag }} {{ form.calories }}
-      </div>
-      <div class="button-group">
-        <button type="submit" class="button">Submit</button>
-        <button type="submit" class="button-ctn">Delete</button>
+  <form method="post">
   
-      </div>
+    <link rel="favicon" href="{% static 'favicon.ico' %}"/>
+    <link rel="stylesheet" href="{% static 'base.css' %}" />
+    <div class="meal-grid">
+      <h2 class="text-center">
+        {% if form.instance.pk %}Modify{% else %}Add{% endif %} Meal
+      </h2>
     </div>
-  </div>
-</form>
+
+    {% csrf_token %}
+
+    <div class="meal-card">{{ form.name.label_tag }} {{ form.name }}</div>
+
+    <div class="meal-card">
+      {{ form.calories.label_tag }} {{ form.calories }}
+    </div>
+    <div class="button-group">
+      <button type="submit" class="button">Submit</button>
+
+      {% comment %}
+
+      <button type="submit" class="button-ctn">Delete</button>
+
+      {% endcomment %}
+
+      <button onclick="history.back()" class="button-cncl">Cancel</button>
+    </div>
+  </form>
 </div>
 {% if form.instance.pk %}
 <form
@@ -37,6 +46,5 @@
   style="margin-top: 1em"
 >
   {% csrf_token %}
- 
 </form>
 {% endif %} {% endblock %}

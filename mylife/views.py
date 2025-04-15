@@ -6,6 +6,7 @@ from django.contrib.auth import logout
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import MyPlan, Meal
+# Removed duplicate import of django.shortcuts
 
 from .forms import MyPlanForm, UserRegisterForm, MealPlanForm
 from .models import MealPlan
@@ -30,8 +31,11 @@ def custom_404(request, exception):
 # -------------------------
 
 def custom_logout_view(request):
-    logout(request)
-    return render(request, 'registration/logged_out.html')
+    if request.method == "POST":
+        logout(request)
+        return render(request, "registration/logged_out.html")
+    else:
+        return redirect("home") 
 
 @login_required
 def meal_plan_list(request):

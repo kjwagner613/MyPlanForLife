@@ -22,9 +22,9 @@ SECRET_KEY = 'FIPqfOB1vfTRhcZb77t7S-P5f9EzTCz9nQ22SQU1-lFsFrTus-QqQyUn8XwWiwUy05
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if not 'ON_HEROKU' in os.environ:
-    DEBUG = True
+    DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', myplanforlife-05b1598c3053.herokuapp.com']
 
 
 
