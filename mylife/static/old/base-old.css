@@ -15,7 +15,7 @@
 }
 
 body {
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   color: var(--text-color);
   font-family: var(--font-family-body);
   margin: 0;
@@ -316,82 +316,4 @@ a:hover {
   border-radius: var(--border-radius);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: var(--spacing-medium);
-}
-
-.plan-date-button {
-  display: inline-block;
-  background-color: #fff8dc;
-  padding: 0.5rem 1.25rem;
-  border-radius: 8px;
-  color: goldenrod;
-  font-weight: bold;
-  font-size: 1.4rem;
-  transition: all 0.25s ease;
-  box-shadow: none;
-  padding: 0;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  min-width: 180px;
-  transition: all 0.3s ease;
-  align-self: center;
-  border-radius: 6px;
-  padding: 0.25rem 0.5rem;
-}
-
-.plan-date-day {
-  font-size: 1.4rem;
-  display: block;
-}
-
-.plan-date-full {
-  font-size: 1.2rem;
-  display: block;
-}
-
-.plan-date-button:hover {
-  background-color: #fff8dc;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  border-radius: 6px;
-  padding: 0.25rem 0.5rem;
-}
-
-.plan-title {
-  text-align: left;
-  padding-left: 20px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #4e4e4e;
-}
-
-.plan-body {
-  padding-left: 20px;
-  color: #333;
-  line-height: 1.6;
-}
-
-.plan-ribbon {
-  background-color: #ffffff;
-  border-left: 4px solid var(--border-color);
-  padding: 1rem 1rem 1rem 0;
-  margin-bottom: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
-  position: relative;
-  overflow: hidden;
-}
-
-.plan-inner {
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  padding: 1rem;
-  margin-left: 20px;
-  margin-right: 10px;
-  background-color: #fdfdfd;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.plan-inner:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }

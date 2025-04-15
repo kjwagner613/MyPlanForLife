@@ -1,47 +1,66 @@
-{% extends 'base.html' %} {% load static %} {% block head %}
+{% extends 'base.html' %}
+{% load static %}
 
-<link rel="stylesheet" href="{% static 'css/base.css' %}" />
-{% endblock %} {% block content %}
-{% comment %} <p class="update_notice">
-  <strong>Note:</strong> You can modify or delete your plans by clicking on the associated date
-</p> {% endcomment %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'base.css' %}" />
+
 <div class="page">
-<h1 class="text-center">My Plans</h1>
+  <h1 class="text-center">My Plans</h1>
+  <div class="plan-container">
 
-<div class="plan-container">
-  {% for myplan in myplans %}
-  <div class="plan">
-    <div class="item">
+    {% for myplan in myplans %}
+    <div class="plan-ribbon">
+      
       {% if myplan.date %}
       <h3>
-        <a href="{% url 'myplan_options' myplan.date %}"
-          >{{ myplan.date|date:"l, F j, Y" }}</a
-        >
+        <div class="plan-date-wrapper">
+          <a href="{% url 'myplan_options' myplan.date %}" class="plan-date-button">
+            <span class="plan-date-day">{{ myplan.date|date:"l" }}</span><br>
+            <span class="plan-date-full">{{ myplan.date|date:"F j, Y" }}</span>
+          </a>
+        </div>
       </h3>
       {% else %}
       <em>No date set</em>
       {% endif %}
-    </div>
-    <div class="item">
-      <p>Physical:<br>{{ myplan.physical }}</p>
-    </div>
-    <div class="item">
-      <p>Spiritual:<br>{{ myplan.spiritual }}</p>
-    </div>
-    <div class="item">
-      <p>Emotional:<br>{{ myplan.emotional }}</p>
-    </div>
-    <div class="item">
-      <p>Mental:<br>{{ myplan.mental }}</p>
-    </div>
-    <div class="item">
-      <p>Quality:<br>{{ myplan.quality }}</p>
-    </div>
-    <div class="item">
-      <p>Goal:<br>{{ myplan.goals }}</p>
-    </div>
-  </div>
 
-  {% endfor %}
-</div> </div>
+      <div class="plan-inner">
+        <p class="plan-title">Physical:</p>
+        <p class="plan-body">{{ myplan.physical }}</p>
+      </div>
+      <div class="plan-inner">
+        <p class="plan-title">Spiritual:</p>
+        <p class="plan-body">{{ myplan.spiritual }}</p>
+      </div>
+      <div class="plan-inner">
+        <p class="plan-title">Emotional:</p>
+        <p class="plan-body">{{ myplan.emotional }}</p>
+      </div>
+      <div class="plan-inner">
+        <p class="plan-title">Mental:</p>
+        <p class="plan-body">{{ myplan.mental }}</p>
+      </div>
+      <div class="plan-inner">
+        <p class="plan-title">Quality:</p>
+        <p class="plan-body">{{ myplan.quality }}</p>
+      </div>
+      <div class="plan-inner">
+        <p class="plan-title">Goal:</p>
+        <p class="plan-body">{{ myplan.goals }}</p>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
 {% endblock %}
+
+
+
+
+{% comment %}
+<p class="update_notice">
+  <strong>Note:</strong> You can modify or delete your plans by clicking on the
+  associated date
+</p>
+{% endcomment %}

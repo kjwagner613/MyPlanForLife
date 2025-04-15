@@ -20,9 +20,17 @@ from mylife.views import HomeView
 from django.contrib.auth.views import LogoutView
 from mylife.views import custom_logout_view
 
+
 urlpatterns = [
-    path('accounts/logout/', custom_logout_view, name='logout'),
+    path('accounts/logout/',LogoutView.as_view(template_name='registration/logged_out.html'),name='logout'),
+    # path('accounts/logout/', custom_logout_view, name='logout'),
     path('admin/', admin.site.urls),
     path('mylife/', include('mylife.urls')),
     path('', HomeView.as_view(), name='home'),
 ]
+
+handler400 = 'mylife.views.custom_400'
+handler403 = 'mylife.views.custom_403'
+handler404 = 'mylife.views.custom_404'
+
+
