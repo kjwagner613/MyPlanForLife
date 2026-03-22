@@ -133,11 +133,19 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'mylife/static'),
     ]
 
-STORAGES = {
-    'staticfiles': {
-        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
-    },
-}
+if DEBUG:
+    # In development, avoid manifest lookups so missing collectstatic output doesn't 500.
+    STORAGES = {
+        'staticfiles': {
+            'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage',
+        },
+    }
+else:
+    STORAGES = {
+        'staticfiles': {
+            'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+        },
+    }
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
