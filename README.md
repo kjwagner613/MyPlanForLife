@@ -57,6 +57,64 @@ MyPlanForLife is a self-help web application that empowers users to create struc
 
 [Heroku App](https://myplanforlife-05b1598c3053.herokuapp.com)
 
+## ☁️ Deploy to Heroku (Postgres)
+
+This project is already configured for Heroku with:
+
+- `Procfile` for web + release (migrations)
+- `runtime.txt` for Python version
+- `DATABASE_URL` support in Django settings
+- WhiteNoise static file serving
+
+### 1. Create app and Postgres
+
+```bash
+heroku login
+heroku create your-app-name
+heroku addons:create heroku-postgresql:essential-0 --app your-app-name
+```
+
+### 2. Set required config vars
+
+```bash
+heroku config:set SECRET_KEY="replace-with-a-strong-secret" --app your-app-name
+heroku config:set DEBUG=False --app your-app-name
+heroku config:set ALLOWED_HOSTS="your-app-name.herokuapp.com" --app your-app-name
+```
+
+`DATABASE_URL` is set automatically by the Postgres add-on.
+
+### 3. Deploy
+
+```bash
+git push heroku main
+```
+
+### 4. Create admin user
+
+```bash
+heroku run python manage.py createsuperuser --app your-app-name
+```
+
+### 5. Open app
+
+```bash
+heroku open --app your-app-name
+```
+
+## 🧪 Run Locally for Demo
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env
+python manage.py migrate
+python manage.py runserver
+```
+
+If you want local Postgres instead of sqlite, set `DATABASE_URL` in `.env`.
+
 ## Next for this app:
 
 - Build out the programs to make them pre-defined, or custom input, possible engage cosultants interested
